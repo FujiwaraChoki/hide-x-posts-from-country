@@ -1,6 +1,6 @@
 # Hide X Posts from Country
 
-![Extension Demonstration](demo.mp4)
+![Extension Demonstration](demo.gif)
 
 A Chrome extension that automatically hides posts from specific countries on X (formerly Twitter). Select which countries to block through an easy-to-use popup interface, and the extension will hide posts from users in those locations.
 
