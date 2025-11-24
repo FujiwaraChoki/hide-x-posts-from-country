@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hide Posts from Country</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #0f1419;
+    }
+
+    .header {
+      background: #1d9bf0;
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0f1419;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cfd9de;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #1d9bf0;
+    }
+
+    .country-list {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #eff3f4;
+      border-radius: 8px;
+    }
+
+    .country-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-bottom: 1px solid #eff3f4;
+    }
+
+    .country-item:last-child {
+      border-bottom: none;
+    }
+
+    .country-item:hover {
+      background: #f7f9f9;
+    }
+
+    .country-item input[type="checkbox"] {
+      margin-right: 12px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .country-flag {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+
+    .country-name {
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .country-code {
+      font-size: 12px;
+      color: #536471;
+    }
+
+    .stats {
+      background: #f7f9f9;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 13px;
+      color: #536471;
+    }
+
+    .stats strong {
+      color: #0f1419;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 12px 16px;
+      background: #f7f9f9;
+      text-align: center;
+      font-size: 12px;
+      color: #536471;
+      border-top: 1px solid #eff3f4;
+    }
+
+    .no-results {
+      padding: 20px;
+      text-align: center;
+      color: #536471;
+      font-size: 14px;
+    }
+
+    .toggle-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: #f7f9f9;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .toggle-label {
+      font-size: 14px;
+      color: #0f1419;
+      font-weight: 500;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cfd9de;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: #1d9bf0;
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🌍 Hide Posts from Country</h1>
+  </div>
+
+  <div class="container">
+    <div class="toggle-section">
+      <span class="toggle-label">Show overlay instead of hiding</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="showOverlay">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Select countries to block</div>
+      <input type="text" class="search-box" id="searchBox" placeholder="Search countries...">
+      <div class="country-list" id="countryList"></div>
+    </div>
+
+    <div class="stats" id="stats">
+      <strong id="blockedCount">0</strong> countries blocked
+    </div>
+  </div>
+
+  <div class="footer">
+    Posts from blocked countries will be hidden
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

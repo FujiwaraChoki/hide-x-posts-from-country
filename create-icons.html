@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Extension Icons</title>
+</head>
+<body>
+  <canvas id="canvas16" width="16" height="16"></canvas>
+  <canvas id="canvas48" width="48" height="48"></canvas>
+  <canvas id="canvas128" width="128" height="128"></canvas>
+
+  <script>
+    function createIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      ctx.fillStyle = '#1d9bf0';
+      ctx.fillRect(0, 0, size, size);
+
+      // Globe emoji (simplified representation)
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `${size * 0.6}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🌍', size / 2, size / 2);
+
+      // Download link
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `icon${size}.png`;
+        a.textContent = `Download icon${size}.png`;
+        document.body.appendChild(a);
+        document.body.appendChild(document.createElement('br'));
+      });
+    }
+
+    createIcon('canvas16', 16);
+    createIcon('canvas48', 48);
+    createIcon('canvas128', 128);
+  </script>
+
+  <p>Open this HTML file in a browser and click the download links to generate the icon files.</p>
+  <p>Place the downloaded PNG files in the extension directory.</p>
+</body>
+</html>

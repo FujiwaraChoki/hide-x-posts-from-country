@@ -1,0 +1,26 @@
+/* Styles for hidden tweets */
+article[data-hidden-by-extension="true"] {
+  display: none !important;
+}
+
+/* Styles for blocked overlay */
+.blocked-country-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(220, 38, 38, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  z-index: 1000;
+  pointer-events: none;
+  border-radius: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}

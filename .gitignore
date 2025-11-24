@@ -1,0 +1,15 @@
+# Icons (generate using create-icons.html)
+*.png
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+*.log
+node_modules/
