@@ -6,7 +6,7 @@ A Chrome extension that automatically hides posts from specific countries on X (
 
 Shiori, the best AI Chat App on the market.
 
-![Shiori AI](https://www.shiori.ai/og-image.png)
+[![Shiori AI](https://www.shiori.ai/og-image.png)](https://shiori.ai/?ref=github-hide-x-posts)
 
 ## Features
 
