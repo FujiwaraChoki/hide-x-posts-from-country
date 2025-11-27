@@ -1,6 +1,3 @@
-# Icons (generate using create-icons.html)
-*.png
-
 # macOS
 .DS_Store
 
